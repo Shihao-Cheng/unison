@@ -200,6 +200,11 @@ h3 {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
 }
 
+.figure.padded {
+  padding: 1.6rem;
+  background: #fff;
+}
+
 .figure-placeholder {
   display: flex;
   align-items: center;
