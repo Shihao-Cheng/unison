@@ -205,6 +205,11 @@ h3 {
   background: #fff;
 }
 
+.figure.padded-sm {
+  padding: 0.7rem;
+  background: #fff;
+}
+
 .figure-placeholder {
   display: flex;
   align-items: center;
