@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unison: Harmonizing Motion, Speech, and Sound for Human-Centric Audio-Video Generation</title>
+    <meta
+      name="description"
+      content="Unison is a unified framework for human-centric audio-video generation that harmonizes motion, speech, and ambient sound. ECCV 2026."
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Unison: Harmonizing Motion, Speech, and Sound for Human-Centric Audio-Video Generation" />
+    <meta property="og:description" content="A unified framework that harmonizes motion, speech, and sound for human-centric audio-video generation. ECCV 2026." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/teaser.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="static/css/index.css" />
+  </head>
+
+  <body>
+    <!-- ============================ HERO ============================ -->
+    <header class="hero">
+      <div class="container">
+        <p class="venue">ECCV 2026</p>
+        <h1 class="title">
+          Unison: Harmonizing Motion, Speech, and Sound for
+          Human-Centric Audio-Video Generation
+        </h1>
+
+        <div class="authors">
+          <span class="author"><a href="https://shihao-cheng.github.io/">Shihao Cheng</a><sup>&#9733;</sup></span>
+          <span class="author">Jiaxu Zhang<sup>&#9733;</sup></span>
+          <span class="author">Quanyue Song</span>
+          <span class="author">Shansong Liu<sup>&#8224;</sup></span>
+          <span class="author">Zhizhi Guo</span>
+          <span class="author">Xiaolei Zhang</span>
+          <span class="author">Chi Zhang</span>
+          <span class="author">Xuelong Li<sup>&#8225;</sup></span>
+          <span class="author">Zhigang Tu<sup>&#8225;</sup></span>
+        </div>
+
+        <!-- EDIT: adjust affiliations as needed -->
+        <p class="affiliations">Wuhan University &nbsp;&middot;&nbsp; Tencent Hunyuan</p>
+
+        <p class="notes">
+          <sup>&#9733;</sup>Equal contribution &nbsp;&nbsp;
+          <sup>&#8224;</sup>Project leader &nbsp;&nbsp;
+          <sup>&#8225;</sup>Corresponding author
+        </p>
+
+        <div class="buttons">
+          <a class="btn" href="https://arxiv.org/abs/2605.08729" target="_blank" rel="noopener">
+            <i class="fa-solid fa-file-lines"></i><span>Paper</span>
+          </a>
+          <a class="btn" href="https://arxiv.org/abs/2605.08729" target="_blank" rel="noopener">
+            <i class="ai ai-arxiv"></i><i class="fa-solid fa-a" style="display:none"></i><span>arXiv</span>
+          </a>
+          <!-- EDIT: replace with the real code repo once it is public -->
+          <a class="btn" href="https://github.com/Shihao-Cheng" target="_blank" rel="noopener">
+            <i class="fa-brands fa-github"></i><span>Code (soon)</span>
+          </a>
+          <a class="btn" href="#bibtex">
+            <i class="fa-solid fa-quote-left"></i><span>BibTeX</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============================ TEASER ============================ -->
+    <section class="section">
+      <div class="container">
+        <!-- EDIT: drop the teaser image at assets/teaser.png and replace the placeholder -->
+        <!-- <img class="figure" src="assets/teaser.png" alt="Unison teaser" /> -->
+        <div class="figure-placeholder">
+          assets/teaser.png &mdash; teaser / Figure&nbsp;1 goes here
+        </div>
+        <p class="caption">
+          <strong>Overview of the key challenges and our approach.</strong>
+          <em>Left:</em> two major misalignments in human-centric audio-video
+          generation &mdash; speech&ndash;sound interference within the audio
+          stream and motion&ndash;audio desynchronization. <em>Middle:</em> our
+          Unison framework resolves these via a semantic-guided harmonization
+          strategy and a progressive audio-video forcing strategy.
+          <em>Right:</em> these designs jointly reduce speech dominance, preserve
+          sound effects, and achieve coherent motion&ndash;audio synchronization.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================ ABSTRACT ============================ -->
+    <section class="section">
+      <div class="container narrow">
+        <h2>Abstract</h2>
+        <p class="abstract">
+          Motion, speech, and sound effects are fundamental elements of
+          human-centric videos, yet their heterogeneous temporal characteristics
+          make joint generation highly challenging. Existing audio-video
+          generation models often fail to maintain consistent alignment across
+          these modalities, leading to noticeable mismatches between motion,
+          speech, and environmental sounds. We present <strong>Unison</strong>, a
+          unified framework that explicitly promotes coherence across the motion,
+          speech, and sound modalities. Within the audio stream, Unison employs a
+          <strong>semantic-guided harmonization strategy</strong> that decouples
+          the generation of speech and sound-effect components. Leveraging
+          bidirectional audio cross-attention and semantic-conditioned gating for
+          semantic-driven adaptive recomposition, this approach effectively
+          mitigates speech dominance and enhances acoustic clarity. For
+          audio&ndash;motion synchronization, we propose a
+          <strong>bidirectional cross-modal forcing strategy</strong> where the
+          cleaner modality guides the noisier one through decoupled denoising
+          schedules, reinforced by a progressive stabilization strategy. Extensive
+          experiments demonstrate that Unison achieves state-of-the-art
+          performance in both audio perceptual quality and cross-modal
+          synchronization, highlighting the importance of explicit multimodal
+          harmonization in human-centric video generation.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================ METHOD ============================ -->
+    <section class="section alt">
+      <div class="container">
+        <h2>Method</h2>
+
+        <!-- EDIT: drop the architecture figure at assets/method.png -->
+        <div class="figure-placeholder">
+          assets/method.png &mdash; Figure&nbsp;2 (Unison architecture) goes here
+        </div>
+        <p class="caption">
+          <strong>Overview of Unison.</strong> Unison couples a video branch and
+          an audio branch via frame-level bidirectional cross-attention. The audio
+          branch performs independent speech and sound-effect generation through a
+          Semantic-Guided Harmonization Strategy.
+        </p>
+
+        <div class="cards">
+          <div class="card">
+            <h3>Semantic-Guided Harmonization</h3>
+            <p>
+              Decouples speech and sound-effect generation. A
+              <strong>Bidirectional Audio Cross-Attention (Bi-ACA)</strong> module
+              mutually refines the two streams, while
+              <strong>Semantic-Conditioned Gating (SCG)</strong> adaptively
+              balances them from caption and transcription semantics &mdash;
+              preventing speech from overshadowing environmental sounds.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Bidirectional Cross-Modal Forcing</h3>
+            <p>
+              Decouples the denoising timesteps of video and audio so the cleaner
+              modality guides the noisier one. Direction-aware loss reweighting
+              strengthens the mutual dependency between motion and audio for robust
+              temporal synchronization.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Progressive Training</h3>
+            <p>
+              A three-stage curriculum &mdash; synchronous warmup, incremental
+              decoupling, and full independence &mdash; gradually introduces
+              cross-modal noise disparities for stable optimization and precise
+              alignment.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ RESULTS ============================ -->
+    <section class="section">
+      <div class="container">
+        <h2>Results</h2>
+        <p class="subtle">
+          Quantitative comparison with state-of-the-art methods on video quality,
+          audio fidelity, and cross-modal consistency.
+          <strong>Best</strong> in bold, <u>second-best</u> underlined.
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Model</th>
+                <th>VA &uarr;</th>
+                <th>ID &uarr;</th>
+                <th>PQ &uarr;</th>
+                <th>CU &uarr;</th>
+                <th>WER &darr;</th>
+                <th>AV &uarr;</th>
+                <th>LSE-C &uarr;</th>
+                <th>DS &darr;</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td rowspan="6">TI2AV</td><td>Universe-1</td><td>3.77</td><td>4.42</td><td>5.95</td><td>5.21</td><td>0.52</td><td>0.62</td><td>2.32</td><td>0.50</td></tr>
+              <tr><td>Ovi</td><td>3.94</td><td>4.42</td><td>6.25</td><td>5.51</td><td>0.43</td><td>0.87</td><td>2.81</td><td>0.12</td></tr>
+              <tr><td>UniAVGen</td><td>4.02</td><td>4.46</td><td>6.18</td><td>5.48</td><td>0.33</td><td>0.81</td><td>2.89</td><td>0.15</td></tr>
+              <tr><td>MOVA</td><td>4.01</td><td>4.52</td><td>6.28</td><td>5.52</td><td>0.29</td><td>0.88</td><td>3.24</td><td>0.13</td></tr>
+              <tr><td>LTX-2</td><td><u>4.15</u></td><td><strong>4.61</strong></td><td><u>6.30</u></td><td><u>5.58</u></td><td><u>0.25</u></td><td><u>0.89</u></td><td><strong>3.45</strong></td><td><u>0.10</u></td></tr>
+              <tr class="ours"><td>Unison (Ours)</td><td>4.02</td><td><u>4.53</u></td><td><strong>6.34</strong></td><td><strong>5.61</strong></td><td><strong>0.22</strong></td><td><strong>0.91</strong></td><td><u>3.30</u></td><td><strong>0.08</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="caption">
+          Despite a 5B video backbone (≈4&times; smaller than LTX-2's 19B), Unison
+          leads in audio fidelity (PQ, CU, WER) and cross-modal synchronization
+          (AV, DS).
+        </p>
+
+        <div class="figure-placeholder small">
+          assets/qualitative.png &mdash; qualitative comparison (Figure&nbsp;4) goes here
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ BIBTEX ============================ -->
+    <section id="bibtex" class="section alt">
+      <div class="container narrow">
+        <h2>BibTeX</h2>
+        <div class="bibtex">
+          <button class="copy-btn" type="button" aria-label="Copy BibTeX">
+            <i class="fa-regular fa-copy"></i> Copy
+          </button>
+          <pre><code>@inproceedings{cheng2026unisonharmonizingmotionspeech,
+  title     = {Unison: Harmonizing Motion, Speech, and Sound for Human-Centric Audio-Video Generation},
+  author    = {Cheng, Shihao and Zhang, Jiaxu and Song, Quanyue and Liu, Shansong and Guo, Zhizhi and Zhang, Xiaolei and Zhang, Chi and Li, Xuelong and Tu, Zhigang},
+  booktitle = {European Conference on Computer Vision (ECCV)},
+  year      = {2026},
+  archiveprefix = {arXiv},
+  primaryclass  = {cs.CV},
+  url       = {https://arxiv.org/abs/2605.08729},
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ FOOTER ============================ -->
+    <footer class="footer">
+      <div class="container">
+        <p>
+          Project page for <strong>Unison</strong> (ECCV 2026). Template inspired
+          by academic project pages. &copy; 2026 Shihao Cheng.
+        </p>
+      </div>
+    </footer>
+
+    <script src="static/js/index.js"></script>
+  </body>
+</html>
