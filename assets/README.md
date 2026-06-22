@@ -1,18 +1,17 @@
 # Assets
 
-Drop your figures / videos here, then update `index.html` accordingly.
+Figures used by `index.html` (exported from the paper's `Figures/` PDFs):
 
-Suggested files (referenced as placeholders in `index.html`):
+| File                | Paper figure | Description                          |
+| ------------------- | ------------ | ------------------------------------ |
+| `teaser.png`        | Fig. 1       | Overview of challenges & approach    |
+| `method.png`        | Fig. 2       | Unison architecture                  |
+| `forcing.png`       | Fig. 3       | Bidirectional cross-modal forcing    |
+| `qualitative.png`   | Fig. 4       | Qualitative comparison               |
+| `bidirectional.png` | Fig. 5       | A2V / V2A generation                 |
+| `ablation_audio.png`| Fig. 6       | Ablation: audio harmonization        |
+| `ablation_video.png`| Fig. 7       | Ablation: cross-modal forcing        |
+| `gate_analysis.png` | Fig. 8       | SCG gate behavior                    |
+| `user_study.png`    | Fig. 9       | User study                           |
 
-- `teaser.png` — Figure 1 (overview / teaser).
-- `method.png` — Figure 2 (Unison architecture).
-- `qualitative.png` — Figure 4 (qualitative comparison).
-
-To use an image, replace the matching `.figure-placeholder` block in
-`index.html` with, e.g.:
-
-```html
-<img class="figure" src="assets/teaser.png" alt="Unison teaser" />
-```
-
-Videos can be embedded with a standard `<video controls>` tag.
+To add demo videos, place them here and embed with a `<video controls>` tag.

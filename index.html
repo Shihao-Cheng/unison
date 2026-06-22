@@ -50,9 +50,6 @@
           <span class="author">Zhigang Tu<sup>&#8225;</sup></span>
         </div>
 
-        <!-- EDIT: adjust affiliations as needed -->
-        <p class="affiliations">Wuhan University &nbsp;&middot;&nbsp; Tencent Hunyuan</p>
-
         <p class="notes">
           <sup>&#9733;</sup>Equal contribution &nbsp;&nbsp;
           <sup>&#8224;</sup>Project leader &nbsp;&nbsp;
@@ -80,11 +77,7 @@
     <!-- ============================ TEASER ============================ -->
     <section class="section">
       <div class="container">
-        <!-- EDIT: drop the teaser image at assets/teaser.png and replace the placeholder -->
-        <!-- <img class="figure" src="assets/teaser.png" alt="Unison teaser" /> -->
-        <div class="figure-placeholder">
-          assets/teaser.png &mdash; teaser / Figure&nbsp;1 goes here
-        </div>
+        <img class="figure" src="assets/teaser.png" alt="Unison overview: challenges and approach" />
         <p class="caption">
           <strong>Overview of the key challenges and our approach.</strong>
           <em>Left:</em> two major misalignments in human-centric audio-video
@@ -133,15 +126,14 @@
       <div class="container">
         <h2>Method</h2>
 
-        <!-- EDIT: drop the architecture figure at assets/method.png -->
-        <div class="figure-placeholder">
-          assets/method.png &mdash; Figure&nbsp;2 (Unison architecture) goes here
-        </div>
+        <img class="figure" src="assets/method.png" alt="Unison architecture" />
         <p class="caption">
           <strong>Overview of Unison.</strong> Unison couples a video branch and
           an audio branch via frame-level bidirectional cross-attention. The audio
           branch performs independent speech and sound-effect generation through a
-          Semantic-Guided Harmonization Strategy.
+          Semantic-Guided Harmonization Strategy, using a Bidirectional Audio
+          Cross-Attention (Bi-ACA) module and a Semantic-Conditioned Gating (SCG)
+          mechanism.
         </p>
 
         <div class="cards">
@@ -175,6 +167,15 @@
             </p>
           </div>
         </div>
+
+        <img class="figure" src="assets/forcing.png" alt="Bidirectional cross-modal forcing strategy" style="margin-top: 2rem;" />
+        <p class="caption">
+          <strong>Bidirectional Cross-Modal Forcing.</strong> By decoupling
+          diffusion timesteps during training, the modality at a lower noise level
+          provides enhanced conditioning to steer the noisier counterpart. A
+          three-stage curriculum progresses from synchronous warmup to full
+          temporal independence.
+        </p>
       </div>
     </section>
 
@@ -220,9 +221,54 @@
           (AV, DS).
         </p>
 
-        <div class="figure-placeholder small">
-          assets/qualitative.png &mdash; qualitative comparison (Figure&nbsp;4) goes here
+        <img class="figure" src="assets/qualitative.png" alt="Qualitative comparison" style="margin-top: 2rem;" />
+        <p class="caption">
+          <strong>Qualitative comparison</strong> against Universe-1, UniAVGen and
+          MOVA. Unison achieves precise synchronization between motion and diverse
+          acoustic components, with superior acoustic layering &mdash; intelligible
+          speech without suppressing salient environmental audio.
+        </p>
+
+        <img class="figure" src="assets/bidirectional.png" alt="Audio-to-Video and Video-to-Audio generation" style="margin-top: 2.4rem;" />
+        <p class="caption">
+          <strong>Bidirectional synthesis.</strong> Unison supports both
+          Audio-to-Video (A2V) and Video-to-Audio (V2A) generation, delivering
+          high-fidelity, semantically consistent results regardless of the source
+          modality.
+        </p>
+
+        <h3 class="block-title">Ablations</h3>
+        <div class="figure-grid">
+          <figure>
+            <img class="figure" src="assets/ablation_audio.png" alt="Ablation: Semantic-Guided Audio Harmonization" />
+            <figcaption>
+              Semantic-Guided Audio Harmonization yields sharper transients and a
+              more balanced speech/sound-effect mixture (vs. weak, speech-dominant
+              sound without it).
+            </figcaption>
+          </figure>
+          <figure>
+            <img class="figure" src="assets/ablation_video.png" alt="Ablation: Bidirectional Cross-modal Forcing" />
+            <figcaption>
+              Bidirectional Cross-modal Forcing tightly synchronizes audio onsets
+              with motion; removing it causes motion&ndash;sound desynchronization.
+            </figcaption>
+          </figure>
         </div>
+
+        <img class="figure" src="assets/gate_analysis.png" alt="SCG gate behavior analysis" style="margin-top: 2.4rem;" />
+        <p class="caption">
+          <strong>Analysis of SCG gate behavior.</strong> Gate polarization
+          increases with model depth (left) and as denoising progresses (middle);
+          mean gate values adapt to semantic content (right).
+        </p>
+
+        <img class="figure" src="assets/user_study.png" alt="User study results" style="margin-top: 2.4rem; max-width: 620px; margin-left: auto; margin-right: auto;" />
+        <p class="caption">
+          <strong>User study</strong> (25 participants, 10 samples). Unison
+          achieves the highest scores in speech&ndash;sound harmony and
+          motion&ndash;audio alignment, and the dominant overall preference.
+        </p>
       </div>
     </section>
 
