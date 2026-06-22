@@ -9,8 +9,6 @@ Figures used by `index.html` (exported from the paper's `Figures/` PDFs):
 | `forcing.png`       | Fig. 3       | Bidirectional cross-modal forcing    |
 | `qualitative.png`   | Fig. 4       | Qualitative comparison               |
 | `bidirectional.png` | Fig. 5       | A2V / V2A generation                 |
-| `ablation_audio.png`| Fig. 6       | Ablation: audio harmonization        |
-| `ablation_video.png`| Fig. 7       | Ablation: cross-modal forcing        |
 | `gate_analysis.png` | Fig. 8       | SCG gate behavior                    |
 | `user_study.png`    | Fig. 9       | User study                           |
 
